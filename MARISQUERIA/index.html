@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Perla Marina | Marisquería Premium</title>
+    <title>Tierra Azul | Cevichería Authentic</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #39679c;
-            --color-secondary: #d4af37;
+            --color-primary: #1a5e9c;
+            --color-secondary: #f8c537;
             --color-accent: #e63946;
             --color-light: #f8f9fa;
             --color-dark: #212529;
@@ -57,8 +57,14 @@
         
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             max-width: 700px;
+        }
+        
+        .hero-tagline {
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
         }
         
         .btn {
@@ -98,15 +104,13 @@
             padding: 1rem 2rem;
         }
         
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--color-primary);
-            font-weight: 700;
+        .logo img {
+            height: 60px;
+            transition: transform 0.3s ease;
         }
         
-        .logo span {
-            color: var(--color-secondary);
+        .logo img:hover {
+            transform: scale(1.05);
         }
         
         .nav-links {
@@ -345,6 +349,10 @@
             color: var(--color-primary);
         }
         
+        .contact-text p {
+            margin-bottom: 0.5rem;
+        }
+        
         .contact-form {
             background-color: white;
             padding: 2rem;
@@ -376,6 +384,30 @@
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
         }
         
         /* Footer */
@@ -475,15 +507,18 @@
 <body>
     <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <h1>La Perla Marina</h1>
-        <p>Descubre la excelencia de los sabores del mar en cada plato</p>
+        <h1>Tierra Azul</h1>
+        <p>CEVICHERIA - AUTHENTIC</p>
+        <p class="hero-tagline">Gracias por preferirnos</p>
         <a href="#reservas" class="btn">Reservar Mesa</a>
     </section>
     
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">La Perla <span>Marina</span></div>
+            <div class="logo">
+                <img src="TIERRA AZUL LOGO1@4x.png" alt="Tierra Azul Logo">
+            </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -499,10 +534,10 @@
         <h2 class="section-title">Nuestra Historia</h2>
         <div class="about-content">
             <div class="about-text">
-                <h2>Más de 30 años de tradición marinera</h2>
-                <p>Fundada en 1990, La Perla Marina nació del amor por el mar y sus frutos. Lo que comenzó como un pequeño puesto en el mercado se ha convertido en un referente de la gastronomía marina en la región.</p>
-                <p>Nuestros pescados y mariscos son seleccionados cada mañana directamente de los pescadores locales, garantizando la máxima frescura y calidad. Combinamos técnicas tradicionales con un toque de innovación para crear experiencias culinarias memorables.</p>
-                <p>Nuestro equipo de chefs, liderados por el reconocido chef marino Javier Delmar, trabaja con pasión para ofrecerte los sabores más auténticos del océano.</p>
+                <h2>Auténticos sabores del mar</h2>
+                <p>Tierra Azul nació de la pasión por la cocina marina tradicional, ofreciendo los más frescos ingredientes del mar preparados con recetas auténticas que han pasado de generación en generación.</p>
+                <p>Nuestros pescados y mariscos son seleccionados cuidadosamente cada mañana, garantizando la máxima frescura y calidad. Combinamos técnicas tradicionales con un toque de creatividad para ofrecer experiencias culinarias únicas.</p>
+                <p>En Tierra Azul, cada plato cuenta una historia de sabores auténticos y pasión por la buena cocina marina.</p>
             </div>
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chef preparando mariscos">
@@ -515,120 +550,146 @@
         <h2 class="section-title">Nuestro Menú</h2>
         
         <div class="menu-tabs">
-            <button class="menu-tab active" data-category="entradas">Entradas</button>
-            <button class="menu-tab" data-category="platos-principales">Platos Principales</button>
-            <button class="menu-tab" data-category="mariscos">Mariscos</button>
-            <button class="menu-tab" data-category="postres">Postres</button>
+            <button class="menu-tab active" data-category="encebollados">Encebollados</button>
+            <button class="menu-tab" data-category="platos-especiales">Platos Especiales</button>
+            <button class="menu-tab" data-category="medios-platos">Medios Platos</button>
+            <button class="menu-tab" data-category="ceviches">Ceviches</button>
+            <button class="menu-tab" data-category="cazuelas">Cazuelas</button>
             <button class="menu-tab" data-category="bebidas">Bebidas</button>
         </div>
         
         <div class="menu-grid" id="menu-container">
-            <!-- Entradas -->
-            <div class="menu-item" data-category="entradas">
+            <!-- Encebollados -->
+            <div class="menu-item" data-category="encebollados">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Encebollado">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Encebollado Estudiantil</h3>
+                        <span class="menu-item-price">$2.20</span>
+                    </div>
+                    <p class="menu-item-desc">(Mini) Delicioso encebollado en porción pequeña.</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="encebollados">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Encebollado">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Encebollado de Pescado</h3>
+                        <span class="menu-item-price">$2.50</span>
+                    </div>
+                    <p class="menu-item-desc">(Junior) Tradicional encebollado de pescado.</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="encebollados">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Encebollado">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Encebollado de Pescado Super</h3>
+                        <span class="menu-item-price">$3.00</span>
+                    </div>
+                    <p class="menu-item-desc">(Jumbo) Porción generosa de encebollado de pescado.</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="encebollados">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Encebollado">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Encebollado Mixto con Camarones</h3>
+                        <span class="menu-item-price">$4.00</span>
+                    </div>
+                    <p class="menu-item-desc">Combinación perfecta de pescado y camarones.</p>
+                </div>
+            </div>
+            
+            <!-- Platos Especiales -->
+            <div class="menu-item" data-category="platos-especiales">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80" alt="Camarones">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Camarones al Ajillo</h3>
+                        <span class="menu-item-price">$8.00</span>
+                    </div>
+                    <p class="menu-item-desc">(Ensalada-Patacones-Arroz) Camarones salteados al ajillo.</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="platos-especiales">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1606755456206-b25206bfa233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Corvina">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Corvina Frita</h3>
+                        <span class="menu-item-price">$7.00</span>
+                    </div>
+                    <p class="menu-item-desc">(Patacones-Arroz-Ensalada) Fresca corvina frita al punto.</p>
+                </div>
+            </div>
+            
+            <!-- Ceviches -->
+            <div class="menu-item" data-category="ceviches">
                 <div class="menu-item-img">
                     <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ceviche">
                 </div>
                 <div class="menu-item-content">
                     <div class="menu-item-header">
-                        <h3 class="menu-item-title">Ceviche Clásico</h3>
-                        <span class="menu-item-price">$14.50</span>
+                        <h3 class="menu-item-title">Ceviche de Pescado</h3>
+                        <span class="menu-item-price">$7.00</span>
                     </div>
-                    <p class="menu-item-desc">Filete de corvina marinado en limón con cebolla morada, ají limo, cilantro y camote.</p>
+                    <p class="menu-item-desc">Fresco ceviche de pescado preparado al momento.</p>
                 </div>
             </div>
             
-            <div class="menu-item" data-category="entradas">
+            <div class="menu-item" data-category="ceviches">
                 <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tiradito">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ceviche">
                 </div>
                 <div class="menu-item-content">
                     <div class="menu-item-header">
-                        <h3 class="menu-item-title">Tiradito de Atún</h3>
-                        <span class="menu-item-price">$16.75</span>
+                        <h3 class="menu-item-title">Ceviche Mixto</h3>
+                        <span class="menu-item-price">$7.80</span>
                     </div>
-                    <p class="menu-item-desc">Finas láminas de atún con salsa de ají amarillo, limón, aceite de oliva y pimienta.</p>
-                </div>
-            </div>
-            
-            <!-- Platos Principales -->
-            <div class="menu-item" data-category="platos-principales">
-                <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80" alt="Paella">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3 class="menu-item-title">Paella Marinera</h3>
-                        <span class="menu-item-price">$28.90</span>
-                    </div>
-                    <p class="menu-item-desc">Arroz con azafrán, mejillones, calamares, langostinos, pescado y almejas.</p>
-                </div>
-            </div>
-            
-            <div class="menu-item" data-category="platos-principales">
-                <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1606755456206-b25206bfa233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Pescado">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3 class="menu-item-title">Pescado a la Parrilla</h3>
-                        <span class="menu-item-price">$22.50</span>
-                    </div>
-                    <p class="menu-item-desc">Filete de lubina a la parrilla con hierbas provenzales y vegetales asados.</p>
-                </div>
-            </div>
-            
-            <!-- Mariscos -->
-            <div class="menu-item" data-category="mariscos">
-                <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Langosta">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3 class="menu-item-title">Langosta Thermidor</h3>
-                        <span class="menu-item-price">$45.00</span>
-                    </div>
-                    <p class="menu-item-desc">Langosta gratinada con salsa de queso parmesano, mostaza y brandy.</p>
-                </div>
-            </div>
-            
-            <div class="menu-item" data-category="mariscos">
-                <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ostras">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3 class="menu-item-title">Ostras Rockefeller</h3>
-                        <span class="menu-item-price">$18.50</span>
-                    </div>
-                    <p class="menu-item-desc">Ostras gratinadas con espinacas, pernod y queso parmesano.</p>
-                </div>
-            </div>
-            
-            <!-- Postres -->
-            <div class="menu-item" data-category="postres">
-                <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Postre">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3 class="menu-item-title">Suspiro Limeño</h3>
-                        <span class="menu-item-price">$8.50</span>
-                    </div>
-                    <p class="menu-item-desc">Crema de vainilla con merengue italiano y canela.</p>
+                    <p class="menu-item-desc">(Camarón-Concha) o (Pescado-Camarón) o (Pulpo-Calamar).</p>
                 </div>
             </div>
             
             <!-- Bebidas -->
             <div class="menu-item" data-category="bebidas">
                 <div class="menu-item-img">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bebida">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jugo">
                 </div>
                 <div class="menu-item-content">
                     <div class="menu-item-header">
-                        <h3 class="menu-item-title">Chicha Morada</h3>
-                        <span class="menu-item-price">$5.00</span>
+                        <h3 class="menu-item-title">Jugo de Naranja</h3>
+                        <span class="menu-item-price">$1.00</span>
                     </div>
-                    <p class="menu-item-desc">Bebida refrescante de maíz morado con especias.</p>
+                    <p class="menu-item-desc">Vaso de jugo de naranja natural recién exprimido.</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="bebidas">
+                <div class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jugo">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Jarra de Jugo de Mora</h3>
+                        <span class="menu-item-price">$3.00</span>
+                    </div>
+                    <p class="menu-item-desc">Refrescante jugo de mora en jarra grande.</p>
                 </div>
             </div>
         </div>
@@ -670,7 +731,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Dirección</h3>
-                        <p>Avenida del Mar 456, Costa Azul</p>
+                        <p>Calle centro de Orellana, referencia Parque Vicente León</p>
                     </div>
                 </div>
                 
@@ -680,7 +741,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Teléfono</h3>
-                        <p>+1 234 567 890</p>
+                        <p>+593 [número de teléfono]</p>
                     </div>
                 </div>
                 
@@ -690,7 +751,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Email</h3>
-                        <p>reservas@laperlamarina.com</p>
+                        <p>tierra.azuloq@gmail.com</p>
                     </div>
                 </div>
                 
@@ -700,8 +761,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Horario</h3>
-                        <p>Lunes a Viernes: 12:00 - 23:00</p>
-                        <p>Sábado y Domingo: 11:00 - 00:00</p>
+                        <p>Lunes a Domingo: 10:00 - 20:00</p>
                     </div>
                 </div>
                 
@@ -711,19 +771,19 @@
                     </div>
                     <div class="contact-text">
                         <h3>Servicios</h3>
-                        <p>Catering para eventos</p>
                         <p>Celebraciones especiales</p>
                         <p>Grupos grandes</p>
+                        <p>Comida para llevar</p>
                     </div>
                 </div>
             </div>
             
             <div class="contact-form">
-                <form id="reservas" action="https://formsubmit.co/alexguaman231@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="📅 Nueva reserva - La Perla Marina">
+                <form id="reservas" action="https://formsubmit.co/tierra.azuloq@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="📅 Nueva reserva - Tierra Azul">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_autoresponse" value="Gracias por tu reserva en La Perla Marina. Te contactaremos pronto para confirmar.">
+                    <input type="hidden" name="_autoresponse" value="Gracias por tu reserva en Tierra Azul. Te contactaremos pronto para confirmar.">
                     
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
@@ -777,65 +837,19 @@
         </div>
     </section>
     
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/[NUMERO_DE_WHATSAPP]" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h3>La Perla Marina</h3>
-                <p>Descubre la excelencia de los sabores del mar en cada plato. Más de 30 años de tradición marinera.</p>
+                <h3>Tierra Azul</h3>
+                <p>CEVICHERIA - AUTHENTIC</p>
+                <p>Gracias por preferirnos</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Horario</h3>
-                <p>Lunes a Viernes: 12:00 - 23:00</p>
-                <p>Sábado y Domingo: 11:00 - 00:00</p>
-                <p>Abierto todos los días festivos</p>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Avenida del Mar 456, Costa Azul</p>
-                <p><i class="fas fa-phone-alt"></i> +1 234 567 890</p>
-                <p><i class="fas fa-envelope"></i> info@laperlamarina.com</p>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023 La Perla Marina. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Menu Filter
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuTabs = document.querySelectorAll('.menu-tab');
-            const menuItems = document.querySelectorAll('.menu-item');
-            
-            menuTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    menuTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    // Show/hide menu items
-                    menuItems.forEach(item => {
-                        if (category === 'all' || item.getAttribute('data-category') === category) {
-                            item.style.display = 'flex';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Smooth scrolling
+                    <a href="#"><i class="fab fa-what
